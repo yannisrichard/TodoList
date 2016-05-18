@@ -1,3 +1,14 @@
+homepage:
+    path: /
+    defaults: { _controller : TodoListBundle:Default:index }
+    
 app:
-    resource: "@AppBundle/Controller/"
+    resource: "@TodoListBundle/Controller/"
     type:     annotation
+
+app.hello_hello:
+	path: /hello/{name}
+	defaults: { _controller: TodoListBundle:Default:hello }
+	requirements:
+		_method: GET
+

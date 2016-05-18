@@ -18,4 +18,27 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
         ]);
     }   
+    
+	/**
+     * @Route("/hello/{name}", name="hello")
+     */
+    public function helloAction($name)
+    {
+        //return new Response(sprintf('Home, Sweet Home %s!', $name));
+		//return new Response('Hello, ' . $name, 200));
+		
+		//Redirecting
+		//$this->redirect($this->generateUrl('homepage'));
+			
+		//Rendering Templates note : hello.html.twig existe pas
+		//return $this->render ('hello/hello.html.twig', array('name' => $name));
+			
+		//Json response
+		$Response = new Response(json_encode(array('name' => $name)));
+		$response->headers->set('Content-Type', 'application/json');
+		//$response = new JsonResponse(array('name => $name));
+		
+		return $response;
+	}
+	
 }
