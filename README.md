@@ -27,3 +27,16 @@ $docker start mysql # or its ID
 
 <assigned port> = $ docker ps
 
+Lancer un script sql dans docker :
+docker exec -i 552d5f6352b7 mysql -uuframework -pp4ssw0rd < schema.sql
+
+Commande Sql :
+SHOW DATABASES;
+use uframework;
+show tables;
+
+
+Lancer app : php bin/console server:run
+
+NOTE : 
+Si yaml problème indentation, solution réécrire.

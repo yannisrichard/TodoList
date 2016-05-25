@@ -4,11 +4,9 @@ homepage:
     
 app:
     resource: "@TodoListBundle/Controller/"
-    type:     annotation
+    type: annotation
 
 app.hello_hello:
-	path: /hello/{name}
-	defaults: { _controller: TodoListBundle:Default:hello }
-	requirements:
-		_method: GET
-
+    path: /hello/{name}
+    defaults: { _controller: TodoListBundle:Default:hello }
+    methods: [ GET ]
