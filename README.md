@@ -31,8 +31,8 @@ Lancer un script sql dans docker :
 $ php bin/console doctrine:database:drop --force
 $ php bin/console doctrine:database:create
 $ docker exec -i 552d5f6352b7 mysql -uuframework -pp4ssw0rd < schema.sql
-Creer Entity avec Doctrine :
-php bin/console doctrine:generate:entity
+Creer Entity avec Doctrine : $ php bin/console doctrine:generate:entity
+Generer getters/setters : $ php bin/console doctrine:generate:entities AppBundle/Entity/Product
 
 Commande Sql :
 SHOW DATABASES;

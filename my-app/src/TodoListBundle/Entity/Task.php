@@ -44,9 +44,23 @@ class Task
     public function getId()
     {
         return $this->id;
+    }    
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Task
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
     }
 
-	/**
+    /**
      * Get name
      *
      * @return string
@@ -55,8 +69,22 @@ class Task
     {
         return $this->name;
     }
-    
-	/**
+
+    /**
+     * Set statut
+     *
+     * @param string $statut
+     *
+     * @return Task
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
      * Get statut
      *
      * @return string
@@ -65,15 +93,28 @@ class Task
     {
         return $this->statut;
     }
-    
-	/**
+
+    /**
+     * Set taskListID
+     *
+     * @param integer $taskListID
+     *
+     * @return Task
+     */
+    public function setTaskListID($taskListID)
+    {
+        $this->taskListID = $taskListID;
+
+        return $this;
+    }
+
+    /**
      * Get taskListID
      *
-     * @return int
+     * @return integer
      */
     public function getTaskListID()
     {
         return $this->taskListID;
     }
 }
-
