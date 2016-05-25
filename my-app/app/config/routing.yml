@@ -7,6 +7,17 @@ app:
     type: annotation
 
 app.hello_hello:
-    path: /hello/{name}
+    path:	/hello/{name}
     defaults: { _controller: TodoListBundle:Default:hello }
     methods: [ GET ]
+
+app.todolist_taskTest:
+    path:	/tasklist/createTaskTest
+    defaults: { _controller: TodoListBundle:TaskList:createTaskTest }
+    methods: [ GET ]
+
+app.todolist_showtasks:
+    path:	/tasklist/{idList}
+    defaults: { _controller: TodoListBundle:TaskList:showTasks }
+    methods: [ GET ]
+    

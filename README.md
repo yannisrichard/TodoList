@@ -46,5 +46,12 @@ show tables;
 
 Lancer app : php bin/console server:run
 
-NOTE : 
-Si yaml problème indentation, solution réécrire.
+# ROUTES :
+http://127.0.0.1:8000/tasklist/createTaskTest
+http://127.0.0.1:8000/tasklist/1
+
+
+HELP : 
+- yaml problème indentation, solution réécrire.
+- doctrine : http://symfony.com/doc/current/book/doctrine.html
+
