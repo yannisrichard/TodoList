@@ -28,7 +28,11 @@ $docker start mysql # or its ID
 <assigned port> = $ docker ps
 
 Lancer un script sql dans docker :
-docker exec -i 552d5f6352b7 mysql -uuframework -pp4ssw0rd < schema.sql
+$ php bin/console doctrine:database:drop --force
+$ php bin/console doctrine:database:create
+$ docker exec -i 552d5f6352b7 mysql -uuframework -pp4ssw0rd < schema.sql
+Creer Entity avec Doctrine :
+php bin/console doctrine:generate:entity
 
 Commande Sql :
 SHOW DATABASES;
