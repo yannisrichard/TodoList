@@ -33,6 +33,11 @@ class Task
 
 	/**
      * @ORM\Column(type="integer")
+     * 
+     * @ORM\ManyToOne(targetEntity="TodoListBundle\Entity\Taskslist")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="taskListID", referencedColumnName="id")
+     * })
      */
     private $taskListID;
 
