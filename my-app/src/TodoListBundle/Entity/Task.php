@@ -45,5 +45,35 @@ class Task
     {
         return $this->id;
     }
+
+	/**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+    
+	/**
+     * Get statut
+     *
+     * @return string
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+    
+	/**
+     * Get taskListID
+     *
+     * @return int
+     */
+    public function getTaskListID()
+    {
+        return $this->taskListID;
+    }
 }
 
