@@ -8,8 +8,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+use TodoListBundle\Entity\Task;
+use TodoListBundle\Form\TaskType;
+
 
 class TaskController extends Controller
 {
-   
+
 }

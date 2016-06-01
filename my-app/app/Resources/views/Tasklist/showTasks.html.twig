@@ -1,0 +1,12 @@
+<h1>{{ taskList.name }} - End : {{ taskList.limitData|date('Y-m-d') }}</h1> --<a href='../update/{{ taskList.id }}'>Update</a>
+	<ul>
+    {% for task in tasks %}
+        <li>{{ task.name }}</li>
+    {% endfor %}
+	</ul>
+	
+<h2>Create Task</h2>
+<div>
+    {{ form(form) }}
+</div>
+

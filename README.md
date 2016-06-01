@@ -43,6 +43,9 @@ SHOW DATABASES;
 use uframework;
 show tables;
 
+Generer Form :
+$ php app/console generate:doctrine:form TodoListBundle:Task
+
 
 Lancer app : php bin/console server:run
 

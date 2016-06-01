@@ -17,7 +17,26 @@ app.todolist_taskTest:
     methods: [ GET ]
 
 app.todolist_showtasks:
-    path:	/tasklist/{idList}
+    path:	/tasklist/show/{idList}
     defaults: { _controller: TodoListBundle:TaskList:showTasks }
     methods: [ GET ]
     
+app.todolist_showtasklist:
+    path:	/tasklist
+    defaults: { _controller: TodoListBundle:TaskList:showTaskList }
+    methods: [ GET ]
+
+app.todolist_addtasklist:
+    path:	/tasklist/new
+    defaults: { _controller: TodoListBundle:TaskList:addTaskList }
+    methods: [ GET ]
+    
+app.todolist_deletetasklist:
+    path:	/tasklist/delete/{idList}
+    defaults: { _controller: TodoListBundle:TaskList:deleteTaskList }
+    methods: [ DELETE ]
+
+app.todolist_updatetasklist:
+    path:	/tasklist/update/{idList}
+    defaults: { _controller: TodoListBundle:TaskList:updateTaskList }
+    methods: [ GET ]

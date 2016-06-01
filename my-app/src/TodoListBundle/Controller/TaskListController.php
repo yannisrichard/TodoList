@@ -11,6 +11,11 @@ use \DateTime;
 
 use TodoListBundle\Entity\TaskList;
 use TodoListBundle\Entity\Task;
+use TodoListBundle\Form\TaskListType;
+use TodoListBundle\Form\TaskType;
+
+
+
 
 class TaskListController extends Controller
 {
@@ -20,8 +25,7 @@ class TaskListController extends Controller
      */
 	 public function indexAction()
      {
-		 //redirection list tasklist, faire routing todolist_taskslist_list
-         //return $this->redirect($this->generateUrl("todolist_taskslist_list"));
+         return $this->redirect($this->generateUrl("app.todolist_showtasklist"));
      }
    
 	/**
@@ -51,24 +55,110 @@ class TaskListController extends Controller
 	}
 	
 	/**
-     * @Route("/tasklist/{idList}", name="idList")
+     * @Route("/tasklist/show/{idList}", name="idList")
      */	
-	public function showTasksAction($idList)
+	public function showTasksAction($idList, Request $request)
 	{
-		//$tasks = $this->getDoctrine()->getRepository('TodoListBundle:Task')->find($idList);
+		$taskList = $this->getDoctrine()->getRepository('TodoListBundle:TaskList')->find($idList);
 		$repository = $this->getDoctrine()->getRepository('TodoListBundle:Task');
         $tasks = $repository->findByTaskListID($idList);
 
 		if (!$tasks) {
 			throw $this->createNotFoundException(
-				'No tasks found for list '.$taskId
+				'No tasks found for list '.$idList
 			);
+		}
+
+		$task = new Task();
+		$task->setTaskListID($idList);
+		$form = $this->get('form.factory')->create(TaskType::class, $task);
+
+		if ($form->handleRequest($request)->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($task);
+			$em->flush();
+
+			$request->getSession()->getFlashBag()->add('notice', 'Task saved.');
+			
+			return $this->redirect($this->generateUrl('app.todolist_showtasks', array('idList' => $idList)));
 		}
 
 		// ... do something, like pass the $task object into a template		
         //return $this->render('TodoListBundle:Task:index.html.twig', array('tasks' => $tasks, 'idList' => $idList));
-		return $this->render('Tasklist/index.html.twig', array('taskslist' => $tasks));
+		return $this->render('Tasklist/showTasks.html.twig', array('tasks' => $tasks, 'taskList' => $taskList, 'form' => $form->createView(), ));
 
 	}
+	
+		
+	/**
+     * @Route("/tasklist")
+     */	
+	public function showTaskListAction()
+	{
+		$repository = $this->getDoctrine()->getRepository('TodoListBundle:TaskList');
+        $tasklists = $repository->findAll();
+
+		if (!$tasklists) {
+			throw $this->createNotFoundException(
+				'No tasklist found.'
+			);
+		}
+		
+		return $this->render('Tasklist/index.html.twig', array('tasklists' => $tasklists));
+	}
+	
+	/**
+     * @Route("tasklist/new")
+     */	
+	public function addTaskListAction(Request $request)  
+	{ 
+		$taskList = new TaskList();
+		
+		$form = $this->get('form.factory')->create(TaskListType::class, $taskList);
+
+		if ($form->handleRequest($request)->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($taskList);
+			
+			$em->flush();
+			$request->getSession()->getFlashBag()->add('notice', 'TaskList saved.');
+
+			return $this->redirect($this->generateUrl('app.todolist_showtasklist'));
+		}
+
+		return $this->render('Tasklist/addTaskList.html.twig', array('form' => $form->createView(),   ));
+	
+	} 
+	
+	/**
+     * @Route("tasklist/delete/{idList}", name="idList")
+     */	
+	public function deleteTaskListAction($idList) 
+	{
+		$em = $this->getDoctrine()->getManager();
+		$TaskList = $em->getRepository('TodoListBundle:TaskList')->find($idList);
+		$em->remove($TaskList);
+		$em->flush();
+		return $this->redirect($this->generateUrl('app.todolist_showtasklist'));
+	}
+	
+	public function updateTaskListAction($idList,Request $request)
+	{
+		$taskList = new TaskList();
+		$form = $this->get('form.factory')->create(TaskListType::class, $taskList);
+
+		$form->handleRequest($request);
+		if($form->isValid()){
+			$data = $form->getData();
+			$taskList->setName($data->getNom());
+			$taskList->setLimitData($data->getNom());
+			$em->persist($task);
+			$em->flush();
+			return $this->redirect($this->generateUrl('app.todolist_showtasklist'));
+		}
+
+		return $this->render('Tasklist/updateTaskList.html.twig', array('form' => $form->createView(),   ));
+	} 
+
 	
 }
