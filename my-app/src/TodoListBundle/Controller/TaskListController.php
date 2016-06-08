@@ -63,12 +63,6 @@ class TaskListController extends Controller
 		$repository = $this->getDoctrine()->getRepository('TodoListBundle:Task');
         $tasks = $repository->findByTaskListID($idList);
 
-		if (!$tasks) {
-			throw $this->createNotFoundException(
-				'No tasks found for list '.$idList
-			);
-		}
-
 		$task = new Task();
 		$task->setTaskListID($idList);
 		$form = $this->get('form.factory')->create(TaskType::class, $task);
@@ -98,12 +92,13 @@ class TaskListController extends Controller
 		$repository = $this->getDoctrine()->getRepository('TodoListBundle:TaskList');
         $tasklists = $repository->findAll();
 
+
 		if (!$tasklists) {
 			throw $this->createNotFoundException(
 				'No tasklist found.'
 			);
 		}
-		
+
 		return $this->render('Tasklist/index.html.twig', array('tasklists' => $tasklists));
 	}
 	
@@ -142,22 +137,33 @@ class TaskListController extends Controller
 		return $this->redirect($this->generateUrl('app.todolist_showtasklist'));
 	}
 	
-	public function updateTaskListAction($idList,Request $request)
-	{
-		$taskList = new TaskList();
+	/**
+     * @Route("tasklist/update/{idList}", name="idList")
+     */	
+	public function updateTaskListAction($idList, Request $request)
+	{			
+		$em = $this->getDoctrine()->getManager();
+		$taskList = $em->getRepository('TodoListBundle:TaskList')->find($idList);
+
+		if (!$taskList) {
+			throw $this->createNotFoundException(
+				'No product found for id '.$idList
+			);
+		}
+		
 		$form = $this->get('form.factory')->create(TaskListType::class, $taskList);
 
-		$form->handleRequest($request);
-		if($form->isValid()){
-			$data = $form->getData();
-			$taskList->setName($data->getNom());
-			$taskList->setLimitData($data->getNom());
-			$em->persist($task);
+		if ($form->handleRequest($request)->isValid()) {
+ 			$data = $form->getData();
+			$taskList->setName($data->getName());
 			$em->flush();
-			return $this->redirect($this->generateUrl('app.todolist_showtasklist'));
+
+			return $this->redirect($this->generateUrl("app.todolist_showtasklist"));
 		}
 
 		return $this->render('Tasklist/updateTaskList.html.twig', array('form' => $form->createView(),   ));
+
+			
 	} 
 
 	

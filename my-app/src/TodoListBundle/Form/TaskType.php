@@ -19,7 +19,7 @@ class TaskType extends AbstractType
         $builder
             ->add('name')
             ->add('statut')
-            //->add('taskListID')
+            ->add('taskListID')
 			->add('save', SubmitType::class)
 
         ;

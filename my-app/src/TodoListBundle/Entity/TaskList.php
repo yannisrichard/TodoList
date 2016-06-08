@@ -25,11 +25,6 @@ class TaskList
      * @ORM\Column(type="string", length=100)
      */
     private $name;
-    
-	/**
-     * @ORM\Column(type="datetime", length=100)
-     */
-    private $limitData;
 
     /**
      * Get id
@@ -65,27 +60,4 @@ class TaskList
         return $this->name;
     }
 
-    /**
-     * Set limitData
-     *
-     * @param \DATETIME $limitData
-     *
-     * @return TaskList
-     */
-    public function setLimitData(\DATETIME $limitData)
-    {
-        $this->limitData = $limitData;
-
-        return $this;
-    }
-
-    /**
-     * Get limitData
-     *
-     * @return \DATETIME
-     */
-    public function getLimitData()
-    {
-        return $this->limitData;
-    }
 }

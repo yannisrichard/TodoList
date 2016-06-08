@@ -20,18 +20,20 @@ $ docker run -d -p 3306 \
 
 
 $ mysql uframework -h127.0.0.1 -P<assigned port> -uuframework -p
+<assigned port> = $ docker ps
 
 $docker stop mysql # or its ID
 
 $docker start mysql # or its ID
 
-<assigned port> = $ docker ps
 
 Creer Entity avec Doctrine : $ php bin/console doctrine:generate:entity
 
 Generer getters/setters : $ php bin/console doctrine:generate:entities TodoListBundle/Entity/Product
 
-Creer la base de données : $ php bin/console doctrine:schema:update --force
+Creer/Mettre à jour la base de données : $ php bin/console doctrine:schema:update --force
+
+Generer Form : $ php app/console generate:doctrine:form TodoListBundle:Task
 
 Lancer un script sql dans docker :
 $ php bin/console doctrine:database:drop --force
@@ -43,16 +45,22 @@ SHOW DATABASES;
 use uframework;
 show tables;
 
-Generer Form :
-$ php app/console generate:doctrine:form TodoListBundle:Task
 
 
 Lancer app : php bin/console server:run
 
 # ROUTES :
 http://127.0.0.1:8000/tasklist/createTaskTest
-http://127.0.0.1:8000/tasklist/1
+http://127.0.0.1:8000/
+http://127.0.0.1:8000/tasklist
+http://127.0.0.1:8000/tasklist/new
+http://127.0.0.1:8000/tasklist/show/1
+http://127.0.0.1:8000/tasklist/update/1
+http://127.0.0.1:8000/tasklist/delete/1
 
+http://127.0.0.1:8000/task/1
+http://127.0.0.1:8000/task/update/1
+http://127.0.0.1:8000/task/delete/1
 
 HELP : 
 - yaml problème indentation, solution réécrire.
