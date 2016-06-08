@@ -22,3 +22,13 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+
+        default:
+            pattern:  ^/
+            simple_preauth:
+                authenticator: todolist_authenticator
+            access_denied_handler: todolist_access_denied_handler
+
+    access_control:
+        - { path: ^/oauth2/callback$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/google, roles: ROLE_HAS_TOKEN }
