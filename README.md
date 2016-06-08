@@ -50,17 +50,18 @@ show tables;
 Lancer app : php bin/console server:run
 
 # ROUTES :
-http://127.0.0.1:8000/tasklist/createTaskTest
-http://127.0.0.1:8000/
-http://127.0.0.1:8000/tasklist
-http://127.0.0.1:8000/tasklist/new
-http://127.0.0.1:8000/tasklist/show/1
-http://127.0.0.1:8000/tasklist/update/1
-http://127.0.0.1:8000/tasklist/delete/1
+http://127.0.0.1:8000/tasklist/createTaskTest  
+http://127.0.0.1:8000/  
+http://127.0.0.1:8000/tasklist  
+http://127.0.0.1:8000/tasklist/new  
+http://127.0.0.1:8000/tasklist/show/1  
+http://127.0.0.1:8000/tasklist/update/1  
+http://127.0.0.1:8000/tasklist/delete/1  
+     
+http://127.0.0.1:8000/task/1  
+http://127.0.0.1:8000/task/update/1  
+http://127.0.0.1:8000/task/delete/1  
 
-http://127.0.0.1:8000/task/1
-http://127.0.0.1:8000/task/update/1
-http://127.0.0.1:8000/task/delete/1
 
 HELP : 
 - yaml problème indentation, solution réécrire.
