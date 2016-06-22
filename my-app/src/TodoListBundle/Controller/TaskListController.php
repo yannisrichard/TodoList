@@ -35,7 +35,6 @@ class TaskListController extends Controller
 	{
 		$tasklist = new TaskList();
 		$tasklist->setName('Liste Defaut');
-		$tasklist->setLimitData(new DateTime('2016-05-25'));
 		
 		$task = new Task();
 		$task->setName('Task1');

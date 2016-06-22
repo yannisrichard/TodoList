@@ -19,7 +19,7 @@ $ docker run -d -p 3306 \
     tutum/mysql
 
 
-$ mysql uframework -h127.0.0.1 -P<assigned port> -uuframework -p
+$ mysql uframework -h127.0.0.1 -P<assigned port> -uuframework -p  
 <assigned port> = $ docker ps
 
 $docker stop mysql # or its ID
