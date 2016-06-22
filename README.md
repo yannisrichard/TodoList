@@ -65,7 +65,5 @@ http://127.0.0.1:8000/task/delete/1
 
 HELP : 
 - yaml problème indentation, solution réécrire.
-- doctrine : http://symfony.com/doc/current/book/doctrine.html 
-- api google : https://developers.google.com/google-apps/tasks/
-- http://symfony.com/doc/current/cookbook/security/api_key_authentication.html
-- http://symfony.com/doc/current/cookbook/security/custom_authentication_provider.html
+- doctrine : http://symfony.com/doc/current/book/doctrine.html
+
