@@ -1,0 +1,7 @@
+app_google.google_callback:
+    pattern:  /google/oauthcallback
+    defaults: { _controller: GoogleBundle:Google:callback }
+
+app_google.google_disconnect:
+    pattern:  /google/disconnect
+    defaults: { _controller: GoogleBundle:Google:disconnect }

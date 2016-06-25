@@ -5,9 +5,8 @@ namespace TodoListBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class TaskListType extends AbstractType
+class MainListType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -16,8 +15,7 @@ class TaskListType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('save', SubmitType::class)
+            ->add('title')
         ;
     }
     
@@ -27,7 +25,7 @@ class TaskListType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'TodoListBundle\Entity\TaskList'
+            'data_class' => 'TodoListBundle\Entity\MainList'
         ));
     }
 }

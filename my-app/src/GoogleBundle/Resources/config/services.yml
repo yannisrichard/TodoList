@@ -1,0 +1,24 @@
+parameters:
+    app_google.authenticator.class: GoogleBundle\Security\Authentication\Authenticator
+    app_google.access_denied_handler.class: GoogleBundle\Security\Authorization\AccessDeniedHandler
+
+    app_google.main_list_client.class: GoogleBundle\Service\MainListClient
+    app_google.item_list_client.class: GoogleBundle\Service\ItemListClient
+
+services:
+    app_google.authenticator:
+        class: %app_google.authenticator.class%
+
+    app_google.access_denied_handler:
+        class: %app_google.access_denied_handler.class%
+        arguments: [@happyr.google.api.client]
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+
+    app_google.main_list_client:
+        class: %app_google.main_list_client.class%
+        arguments: [@happyr.google.api.client, @security.context, @app_google.item_list_client]
+
+    app_google.item_list_client:
+            class: %app_google.item_list_client.class%
+            arguments: [@happyr.google.api.client, @security.context]

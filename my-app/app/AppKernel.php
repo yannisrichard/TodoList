@@ -19,7 +19,6 @@ class AppKernel extends Kernel
             new HappyR\Google\ApiBundle\HappyRGoogleApiBundle(),
             //new GoogleBundle\GoogleBundle(),
 
-
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -1,0 +1,75 @@
+<?php
+
+namespace TodoListBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\DateTime;
+
+/**
+ * ItemList
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="TodoListBundle\Repository\ItemListRepository")
+ */
+class ItemList
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\NotBlank()
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text")
+     * @Assert\NotNull()
+     * @Assert\NotBlank()
+     */
+    private $content;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="deadline", type="datetime")
+     * @Assert\DateTime()
+     */
+    private $deadline;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="done", type="boolean")
+     */
+    private $done;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TodoListBundle\Entity\MainList", inversedBy="itemlists")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $mainlist;
+
+    /**
+     * Default Constructor
+     */
+    public function __construct()
+    {
+        $this->deadline = new \DateTime();
+        $this->done = false;
+    }
+
+    
+}

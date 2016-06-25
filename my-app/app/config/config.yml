@@ -69,10 +69,11 @@ swiftmailer:
     spool:     { type: memory }
 
 # HappyR Configuration
+#developer_key: AIzaSyBLfpLKzGz4zpLoqh2BKG71IOgJGNN69xE
 happy_r_google_api:
   application_name: TodoList
   oauth2_client_id: 211897906145-j7f0l2bp6apgls4elic55kk6k0nes26n.apps.googleusercontent.com
   oauth2_client_secret: 2w-c614f9xHOv4Nzrv8F6sKY
-  oauth2_redirect_uri: http://127.0.0.1:8000/oauthcallback
-  developer_key: AIzaSyBLfpLKzGz4zpLoqh2BKG71IOgJGNN69xE
-  site_name: todolist
+  oauth2_redirect_uri: http://127.0.0.1:8000/google/oauthcallback
+  developer_key: 211897906145-j7f0l2bp6apgls4elic55kk6k0nes26n.apps.googleusercontent.com
+  site_name: TodoList.com

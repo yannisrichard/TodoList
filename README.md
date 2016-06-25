@@ -33,7 +33,7 @@ Generer getters/setters : $ php bin/console doctrine:generate:entities TodoListB
 
 Creer/Mettre à jour la base de données : $ php bin/console doctrine:schema:update --force
 
-Generer Form : $ php app/console generate:doctrine:form TodoListBundle:Task
+Generer Form : $ php bin/console generate:doctrine:form TodoListBundle:Task
 
 Lancer un script sql dans docker :
 $ php bin/console doctrine:database:drop --force
