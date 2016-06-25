@@ -16,6 +16,9 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 			new TodoListBundle\TodoListBundle(),
+            new HappyR\Google\ApiBundle\HappyRGoogleApiBundle(),
+            //new GoogleBundle\GoogleBundle(),
+
 
         ];
 

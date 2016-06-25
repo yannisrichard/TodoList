@@ -1,0 +1,67 @@
+#################
+# Global Routes #
+#################
+homepage:
+    path: /
+    defaults: { _controller : TodoListBundle:TodoList:index }
+    
+app.hello_hello:
+    path:	/hello/{name}
+    defaults: { _controller: TodoListBundle:Default:hello }
+    methods: [ GET ]
+
+#########################################
+# Routes for local ToDoList Application #
+#########################################
+app.todolist_taskTest:
+    path:	/tasklist/createTaskTest
+    defaults: { _controller: TodoListBundle:TaskList:createTaskTest }
+    methods: [ GET ]
+
+app.todolist_showtasks:
+    path:	/tasklist/show/{idList}
+    defaults: { _controller: TodoListBundle:TaskList:showTasks }
+    methods: [ GET, POST ]
+    
+app.todolist_showtasklist:
+    path:	/tasklist
+    defaults: { _controller: TodoListBundle:TaskList:showTaskList }
+    methods: [ GET ]
+
+app.todolist_addtasklist:
+    path:	/tasklist/new
+    defaults: { _controller: TodoListBundle:TaskList:addTaskList }
+    methods: [ GET ]
+    
+app.todolist_deletetasklist:
+    path:	/tasklist/delete/{idList}
+    defaults: { _controller: TodoListBundle:TaskList:deleteTaskList }
+    methods: [ GET ]
+
+app.todolist_updatetasklist:
+    path:	/tasklist/update/{idList}/
+    defaults: { _controller: TodoListBundle:TaskList:updateTaskList }
+    methods: [ GET,  POST ]
+    
+    
+app.todolist_getTask:
+    path:	/task/{idTask}
+    defaults: { _controller: TodoListBundle:Task:getTask }
+    methods: [ GET ]   
+    
+app.todolist_deletetask:
+    path:	/task/delete/{idTask}
+    defaults: { _controller: TodoListBundle:Task:deleteTask }
+    methods: [ GET ]
+    
+app.todolist_updatetask:
+    path:	/task/update/{idTask}/
+    defaults: { _controller: TodoListBundle:Task:updateTask }
+    methods: [ GET,  POST ]
+
+
+
+
+##########################################
+# Routes for Google ToDoList Application #
+##########################################
