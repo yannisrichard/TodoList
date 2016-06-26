@@ -27,8 +27,8 @@ $ php bin/console server:run
 
 ##Commandes utiles
 Se connecter à la base de données docker :      
-$ mysql uframework -h127.0.0.1 -P<assigned port> -uuframework -p  
-<assigned port> = $ docker ps
+$ mysql uframework -h127.0.0.1 -P32768 -uuframework -p  
+32768 = port données par $ docker ps   
 Commande Sql :
 SHOW DATABASES;
 use uframework;
@@ -38,16 +38,15 @@ Démarrer/Stopper Mysql :
 $docker stop mysql # or its ID
 $docker start mysql # or its ID
 
-
-Creer Entity avec Doctrine : 
+Creer Entity avec Doctrine :     
 $ php bin/console doctrine:generate:entity  
 Generer getters/setters :   
-$ php bin/console doctrine:generate:entities TodoListBundle/Entity/Product
+$ php bin/console doctrine:generate:entities TodoListBundle/Entity/Product   
 Creer/Mettre à jour la base de données :  
 $ php bin/console doctrine:schema:update --force  
 Generer Form :   
 $ php bin/console generate:doctrine:form TodoListBundle:Task 
 
-Bug : 
+##Bug : 
 - Authentification Google.
 
