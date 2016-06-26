@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
- * ItemList
+ * ItemList.
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="TodoListBundle\Repository\ItemListRepository")
@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Constraints\DateTime;
 class ItemList
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -50,7 +50,7 @@ class ItemList
     private $deadline;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="done", type="boolean")
      */
@@ -63,7 +63,7 @@ class ItemList
     private $mainlist;
 
     /**
-     * Default Constructor
+     * Default Constructor.
      */
     public function __construct()
     {
@@ -72,9 +72,9 @@ class ItemList
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -82,7 +82,7 @@ class ItemList
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -96,7 +96,7 @@ class ItemList
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class ItemList
     }
 
     /**
-     * Set content
+     * Set content.
      *
      * @param string $content
      *
@@ -120,7 +120,7 @@ class ItemList
     }
 
     /**
-     * Get content
+     * Get content.
      *
      * @return string
      */
@@ -130,7 +130,7 @@ class ItemList
     }
 
     /**
-     * Set deadline
+     * Set deadline.
      *
      * @param \DateTime $deadline
      *
@@ -144,7 +144,7 @@ class ItemList
     }
 
     /**
-     * Get deadline
+     * Get deadline.
      *
      * @return \DateTime
      */
@@ -154,9 +154,9 @@ class ItemList
     }
 
     /**
-     * Set done
+     * Set done.
      *
-     * @param boolean $done
+     * @param bool $done
      *
      * @return ItemList
      */
@@ -168,9 +168,9 @@ class ItemList
     }
 
     /**
-     * Get done
+     * Get done.
      *
-     * @return boolean
+     * @return bool
      */
     public function getDone()
     {
@@ -178,19 +178,19 @@ class ItemList
     }
 
     /**
-     * Inverse the boolean value of done
+     * Inverse the boolean value of done.
      */
-    public function inverseDone() {
-        if($this->done) {
+    public function inverseDone()
+    {
+        if ($this->done) {
             $this->done = false;
-        }
-        else {
+        } else {
             $this->done = true;
         }
     }
 
     /**
-     * Set mainlist
+     * Set mainlist.
      *
      * @param \TodoListBundle\Entity\MainList $mainlist
      *
@@ -204,7 +204,7 @@ class ItemList
     }
 
     /**
-     * Get mainlist
+     * Get mainlist.
      *
      * @return \TodoListBundle\Entity\MainList
      */

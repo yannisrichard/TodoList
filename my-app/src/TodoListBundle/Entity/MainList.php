@@ -7,14 +7,15 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
 
 /**
- * List
+ * List.
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="TodoListBundle\Repository\MainListRepository")
  */
-class MainList {
+class MainList
+{
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -37,7 +38,7 @@ class MainList {
     private $itemlists;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -45,9 +46,10 @@ class MainList {
     }
 
     /**
-     * Set id
+     * Set id.
      *
      * @param $id string
+     *
      * @return MainList
      */
     public function setId($id)
@@ -58,9 +60,9 @@ class MainList {
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -68,9 +70,10 @@ class MainList {
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
+     *
      * @return MainList
      */
     public function setTitle($title)
@@ -81,7 +84,7 @@ class MainList {
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -91,20 +94,22 @@ class MainList {
     }
 
     /**
-     * Add itemlists
+     * Add itemlists.
      *
      * @param \TodoListBundle\Entity\ItemList $itemlists
+     *
      * @return MainList
      */
     public function addItemlist(ItemList $itemlists)
     {
         $this->itemlists[] = $itemlists;
         $itemlists->setMainlist($this);
+
         return $this;
     }
 
     /**
-     * Remove itemlists
+     * Remove itemlists.
      *
      * @param \TodoListBundle\Entity\ItemList $itemlists
      */
@@ -114,7 +119,7 @@ class MainList {
     }
 
     /**
-     * Get itemlists
+     * Get itemlists.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

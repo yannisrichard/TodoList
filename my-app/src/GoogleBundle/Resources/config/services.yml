@@ -11,14 +11,14 @@ services:
 
     app_google.access_denied_handler:
         class: %app_google.access_denied_handler.class%
-        arguments: [@happyr.google.api.client]
+        arguments: ['@happyr.google.api.client']
         tags:
             - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
 
     app_google.main_list_client:
         class: %app_google.main_list_client.class%
-        arguments: [@happyr.google.api.client, @security.context, @app_google.item_list_client]
+        arguments: ['@happyr.google.api.client', '@security.token_storage', '@app_google.item_list_client']
 
     app_google.item_list_client:
             class: %app_google.item_list_client.class%
-            arguments: [@happyr.google.api.client, @security.context]
+            arguments: ['@happyr.google.api.client', '@security.token_storage']

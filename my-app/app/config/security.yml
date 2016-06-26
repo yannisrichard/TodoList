@@ -32,6 +32,12 @@ security:
 
         default:
             pattern: ^/
-            anonymous: ~
+            simple_preauth:
+                authenticator: app_google.authenticator
+            access_denied_handler: app_google.access_denied_handler
 
-            
+    access_control:
+        - { path: ^/google/oauthcallback$, roles: IS_AUTHENTICATED_ANONYMOUSLY }       
+        - { path: ^/google, roles: ROLE_HAS_TOKEN }
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/google, roles: ROLE_OK }

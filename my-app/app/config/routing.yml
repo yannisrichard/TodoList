@@ -1,3 +1,7 @@
 app:
     resource: "@TodoListBundle/Resources/config/routing.yml"
     prefix:   /
+
+app_google:
+    resource: "@GoogleBundle/Resources/config/routing.yml"
+    prefix:   /

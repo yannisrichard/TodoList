@@ -64,3 +64,47 @@ app.item_item_remove:
     requirements:
         id: \d+
         idItem: \d+
+
+
+##########################################
+# Routes for Google ToDoList Application #
+##########################################
+app.list_google_index:
+    path:  /google
+    defaults: { _controller: TodoListBundle:ListGoogle:list }
+
+app.list_google_list:
+    path:  /google/list
+    defaults: { _controller: TodoListBundle:ListGoogle:list }
+
+app.list_google_list_add:
+    path:  /google/list/add
+    defaults: { _controller: TodoListBundle:ListGoogle:listadd }
+
+app.list_google_list_id:
+    path:  /google/list/{id}
+    defaults: { _controller: TodoListBundle:ListGoogle:listid }
+
+app.list_google_list_edit:
+    path:  /google/list/{id}/edit
+    defaults: { _controller: TodoListBundle:ListGoogle:listedit }
+
+app.list_google_list_remove:
+    path:  /google/list/{id}/remove
+    defaults: { _controller: TodoListBundle:ListGoogle:listremove }
+
+app.item_google_item_add:
+    path:  /google/list/{id}/item/add
+    defaults: { _controller: TodoListBundle:ItemGoogle:itemadd }
+
+app.item_google_item_id:
+    path:  /google/list/{id}/item/{idItem}
+    defaults: { _controller: TodoListBundle:ItemGoogle:itemid }
+
+app.item_google_item_edit:
+    path:  /google/list/{id}/item/{idItem}/edit
+    defaults: { _controller: TodoListBundle:ItemGoogle:itemedit }
+
+app.item_google_item_remove:
+    path:  /google/list/{id}/item/{idItem}/remove
+    defaults: { _controller: TodoListBundle:ItemGoogle:itemremove }

@@ -15,9 +15,9 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-			new TodoListBundle\TodoListBundle(),
+            new TodoListBundle\TodoListBundle(),
             new HappyR\Google\ApiBundle\HappyRGoogleApiBundle(),
-            //new GoogleBundle\GoogleBundle(),
+            new GoogleBundle\GoogleBundle(),
 
         ];
 

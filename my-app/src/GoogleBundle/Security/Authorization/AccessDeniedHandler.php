@@ -8,7 +8,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use HappyR\Google\ApiBundle\Services\GoogleClient;
 
-class AccessDeniedHandler implements AccessDeniedHandlerInterface {
+class AccessDeniedHandler implements AccessDeniedHandlerInterface
+{
     private $client;
 
     public function __construct(GoogleClient $client)
@@ -17,15 +18,16 @@ class AccessDeniedHandler implements AccessDeniedHandlerInterface {
         $client->getGoogleClient()->setScopes(array('https://www.googleapis.com/auth/tasks'));
     }
 
-    public function onKernelException() {
+    public function onKernelException()
+    {
         return $this->handle(new Request(), new AccessDeniedException());
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function handle(Request $request, AccessDeniedException $accessDeniedException)
     {
         return new RedirectResponse($this->client->createAuthUrl());
     }
-} 
+}
