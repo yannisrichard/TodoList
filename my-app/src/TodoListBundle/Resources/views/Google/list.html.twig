@@ -5,7 +5,7 @@
         <div class="container">
             <ul class="nav navbar-nav">
                 <li><a><b>Lists</b></a></li>
-                <li><a href="{{ path('leo_and_leo_to_do_list.list_google_list_add') }}">Add a list</a></li>
+                <li><a href="{{ path('app.list_google_list_add') }}">Add a list</a></li>
             </ul>
         </div>
     </nav>
@@ -17,9 +17,9 @@
                 {% for list in lists %}
                     <li>
                         <figure>
-                            <img src="{{ asset('public/img/nyan.png') }}" alt="image"/>
+                            <img src="{{ asset('public/img/panda.jpg') }}" alt="image"/>
                             <figcaption>
-                                <h3><a href="{{ path('leo_and_leo_to_do_list.list_google_list_id', { 'id': list.id }) }}">{{ list.title }}</a></h3>
+                                <h3><a href="{{ path('app.list_google_list_id', { 'id': list.id }) }}">{{ list.title }}</a></h3>
                                 <p>Number of tasks : {{ list.itemlists|length }}</p>
                             </figcaption>
                         </figure>

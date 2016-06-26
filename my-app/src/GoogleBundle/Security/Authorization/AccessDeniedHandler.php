@@ -18,11 +18,6 @@ class AccessDeniedHandler implements AccessDeniedHandlerInterface
         $client->getGoogleClient()->setScopes(array('https://www.googleapis.com/auth/tasks'));
     }
 
-    public function onKernelException()
-    {
-        return $this->handle(new Request(), new AccessDeniedException());
-    }
-
     /**
      * {@inheritdoc}
      */

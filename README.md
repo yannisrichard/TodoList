@@ -48,5 +48,6 @@ Generer Form :
 $ php bin/console generate:doctrine:form TodoListBundle:Task 
 
 ##Bug : 
-- Authentification Google.
+- Après Oauth.
+cURL error 60: SSL certificate problem: unable to get local issuer certificate (see http://curl.haxx.se/libcurl/c/libcurl-errors.html)
 

@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new TodoListBundle\TodoListBundle(),
             new HappyR\Google\ApiBundle\HappyRGoogleApiBundle(),
             new GoogleBundle\GoogleBundle(),
-
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

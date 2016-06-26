@@ -1,5 +1,5 @@
 app_google.google_callback:
-    path:  /google/oauthcallback
+    path:  /callback
     defaults: { _controller: GoogleBundle:Google:callback }
 
 app_google.google_disconnect:

@@ -61,7 +61,6 @@ class ListGoogleController extends Controller
     {
         $client = $this->get('app_google.main_list_client');
 
-        // Creation of the form
         $mainlist = $client->get($id);
         if ($mainlist == null) {
             throw new NotFoundHttpException();

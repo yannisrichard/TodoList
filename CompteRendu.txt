@@ -1,0 +1,12 @@
+Compte Rendu RICHARD - THUAIRE :
+
+Pour l'installation, il suffit de suivre les instructions présentes dans le Readme.
+
+Pour la partie local, l'application fonctionne correctement il est possible de faire les fonctions demandés dans le sujet, création, édition, suppression de liste ou de ses tâches.
+
+Pour la partie avec Google API, nous n'avons pas pu finaliser complétement l'application car sur les ordinateurs de l'iut la connexion s'effectuait correctement mais depuis mon ordinateur portable, j'ai l'erreur suivante :
+cURL error 60: SSL certificate problem: unable to get local issuer certificate (see http://curl.haxx.se/libcurl/c/libcurl-errors.html).
+Voir error.avi pour le déroulement de l'erreur.
+
+La partie CSS a été effectué avec Bootstrapp.
+Les dossiers src et app ont été formaté avec php-cs-fixer.

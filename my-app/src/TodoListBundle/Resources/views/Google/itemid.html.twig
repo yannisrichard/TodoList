@@ -6,9 +6,9 @@
             <div class="container">
                 <ul class="nav navbar-nav">
                     <li><a><b>{{ item.title }}</b></a></li>
-                    <li><a href="{{ path('leo_and_leo_to_do_list.list_google_list_id', { 'id': item.mainlist.id }) }}">Return to the main list</a></li>
-                    <li><a href="{{ path('leo_and_leo_to_do_list.item_google_item_edit', { 'id': item.mainlist.id, 'idItem': item.id }) }}">Edit the item</a></li>
-                    <li><a href="{{ path('leo_and_leo_to_do_list.item_google_item_remove', { 'id': item.mainlist.id, 'idItem': item.id }) }}">Remove the item</a></li>
+                    <li><a href="{{ path('app.list_google_list_id', { 'id': item.mainlist.id }) }}">Return to the main list</a></li>
+                    <li><a href="{{ path('app.item_google_item_edit', { 'id': item.mainlist.id, 'idItem': item.id }) }}">Edit the item</a></li>
+                    <li><a href="{{ path('app.item_google_item_remove', { 'id': item.mainlist.id, 'idItem': item.id }) }}">Remove the item</a></li>
                 </ul>
             </div>
         </nav>
@@ -24,7 +24,7 @@
                         <input type="submit" class="btn btn-default" name="done" value="Not done" />
                     {% endif %}
                 </form>
-                <img src="{{ asset("public/img/nyan.png") }}" alt="image"/>
+                <img src="{{ asset("public/img/panda.jpg") }}" alt="image"/>
             </div>
             <div class="item-content">
                 <h4>Content : {{ item.content }}</h4>

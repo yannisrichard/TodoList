@@ -2,7 +2,6 @@
 
 namespace GoogleBundle\Service;
 
-use Google_Service_Tasks;
 use HappyR\Google\ApiBundle\Services\GoogleClient;
 use TodoListBundle\Entity\MainList;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -29,7 +28,7 @@ class MainListClient
         $googleClient = $client->getGoogleClient();
         $googleClient->setAccessToken($token);
 
-        $this->service = new Google_Service_Tasks($googleClient);
+        $this->service = new \Google_Service_Tasks($googleClient);
     }
 
     /**
