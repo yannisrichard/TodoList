@@ -27,8 +27,8 @@ $ php bin/console server:run
 
 ##Commandes utiles
 Se connecter à la base de données docker :      
-$ mysql uframework -h127.0.0.1 -P32768 -uuframework -p  
-32768 = port donné par $ docker ps   
+$ mysql uframework -h10.0.75.2 -P32768 -uuframework -p 
+10.0.75.2 et 32768 sont données par la commande $ docker ps   
 Commande Sql :
 SHOW DATABASES;
 use uframework;
